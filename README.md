@@ -141,24 +141,24 @@ git clone https://gitee.com/dslab-lzu/maqueos.git
 # 以下为LightenOS修改
 Zhl:
 ## 1、修改drv/console.c：
-添加#define LOOP_PER_MS 1000000UL（每毫秒循环次数）
-添加void delay_ms(unsigned int ms)实现延时
-添加void clear_screen()实现清屏
-添加void print_welcome()打印WLCOME
-添加void print_lightenos()打印LIGHTENOS
-将原来在excp文件夹下的timer_interrupt()修改并移到console.c中利用定时器中断实现光标闪烁
-修改do_keyboard函数支持光标移动
-设置2个键盘映射数组以及shift键标志def,实现按住shift输入大写
+### 添加#define LOOP_PER_MS 1000000UL（每毫秒循环次数）
+### 添加void delay_ms(unsigned int ms)实现延时
+### 添加void clear_screen()实现清屏
+### 添加void print_welcome()打印WLCOME
+### 添加void print_lightenos()打印LIGHTENOS
+### 将原来在excp文件夹下的timer_interrupt()修改并移到console.c中利用定时器中断实现光标闪烁
+### 修改do_keyboard函数支持光标移动
+### 设置2个键盘映射数组以及shift键标志def,实现按住shift输入大写
 ## 2、修改excp/exception.c:
-添加timer_interrupt1()保证原定时器逻辑，将timer_interrupt()放入timer_interrupt1()中
-修改do_exception()函数中调用从timer_interrupt()改为timer_interrupt1()
+### 添加timer_interrupt1()保证原定时器逻辑，将timer_interrupt()放入timer_interrupt1()中
+### 修改do_exception()函数中调用从timer_interrupt()改为timer_interrupt1()
 ## 3、修改init/main.c:
-添加print_welcome();
-添加print_lightenos();
+### 添加print_welcome();
+### 添加print_lightenos();
 ## 4、修改xtfs/bin中各.S文件：
-将.S文件中xtos改为LightenOS相关
+### 将.S文件中xtos改为LightenOS相关
 ## 5、修改xtfs:
-在xtfs/src中添加read.c文件用于从硬盘中读取指定文件
-xtfs中添加了read.c生成的read.o二进制文件便于在xtfs目录下使用./read进行测试
-xtfs中添加了test.txt测试文件，内容“read success!”
-在xtfs中新生成了一个xtfs.img硬盘
+### 在xtfs/src中添加read.c文件用于从硬盘中读取指定文件
+### xtfs中添加了read.c生成的read.o二进制文件便于在xtfs目录下使用./read进行测试
+### xtfs中添加了test.txt测试文件，内容“read success!”
+### 在xtfs中新生成了一个xtfs.img硬盘
