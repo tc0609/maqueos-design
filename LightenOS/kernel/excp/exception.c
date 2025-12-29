@@ -44,7 +44,7 @@ int (*syscalls[])() = {
 	sys_fork, sys_input, sys_output, sys_exit, sys_pause,
 	sys_mount, sys_exe, sys_shmem, sys_timer, sys_open,
 	sys_close, sys_read, sys_create, sys_destroy, sys_write,
-	sys_sync};
+	sys_sync,sys_kill,sys_ls,sys_file_size,sys_filetype};
 
 int sys_timer(int seconds)
 {

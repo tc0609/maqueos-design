@@ -15,7 +15,9 @@
 #define NR_write 14
 #define NR_sync 15
 #define NR_kill 16
-
+#define NR_ls 17
+#define NR_fileSize 18
+#define NR_filetype 19
 .macro syscall0 A7
 	ori $a7, $r0, \A7
 	syscall 0

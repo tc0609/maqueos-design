@@ -21,6 +21,6 @@ exit:
 str:
 	.string "file does not exist.\n"
 file:
-	.string "cqut.txt"
+	.string "tzh.txt"
 buf_read:
 	.fill 1024,1,0

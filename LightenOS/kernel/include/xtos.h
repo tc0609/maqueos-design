@@ -106,7 +106,14 @@ void tell_father();
 void do_signal();
 void shmem_init();
 int sys_shmem(char *, unsigned long *);
-
+// new
+void intToString(int, char *);
+//new
+int sys_kill();
+//new
+int sys_file_size(char *);
+// new
+int sys_filetype(char *);
 void disk_interrupt();
 void disk_init();
 char *read_block(short);
@@ -114,7 +121,7 @@ void write_block(short, char *);
 void clear_block(short);
 void free_block(short);
 int sys_sync();
-
+int sys_ls();
 int sys_mount();
 struct inode *find_inode(char *);
 void read_inode_block(struct inode *, short, char *, int);
