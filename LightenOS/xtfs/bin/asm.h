@@ -14,6 +14,7 @@
 #define NR_destroy 13
 #define NR_write 14
 #define NR_sync 15
+#define NR_kill 16
 
 .macro syscall0 A7
 	ori $a7, $r0, \A7
