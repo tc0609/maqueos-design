@@ -176,3 +176,26 @@ void process_init()
 	process[0]->state = TASK_RUNNING;
 	current = process[0];
 }
+
+int sys_kill()
+{
+	int i,j;
+
+	for(i = 1; i < NR_PROCESS; i++)
+	{
+		if(process[i]->father == current)
+		{
+			for(j = 0; j < NR_FILE; j++)
+			{
+				if(process[i]->file_table[j].inode)
+				{
+					process[i]->file_table[j].inode = 0;
+					process[i]->file_table[j].pos_r = 0;
+					process[i]->file_table[j].pos_w = 0;
+				}
+			}
+			free_process(process[i]);
+		}
+	}
+	return 0;
+}
