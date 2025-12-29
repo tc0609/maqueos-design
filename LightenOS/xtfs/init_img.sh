@@ -11,6 +11,7 @@ cd bin
 ./compile.sh create
 ./compile.sh destroy
 ./compile.sh sync
+./compile.sh kill
 
 dd if=/dev/zero of=xtfs.img bs=512 count=4096 2> /dev/null
 ../format 
@@ -24,6 +25,7 @@ dd if=/dev/zero of=xtfs.img bs=512 count=4096 2> /dev/null
 ../copy create 1
 ../copy destroy 1
 ../copy sync 1
+../copy kill 1
 
 rm -f xtsh print share shmem hello read write create destroy sync
 mv xtfs.img ../../run
