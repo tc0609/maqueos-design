@@ -162,3 +162,20 @@ Zhl:
 ### xtfs中添加了read.c生成的read.o二进制文件便于在xtfs目录下使用./read进行测试
 ### xtfs中添加了test.txt测试文件，内容“read success!”
 ### 在xtfs中新生成了一个xtfs.img硬盘
+HB:
+
+### kill系统调用：
+
+## 1、修改了proc/process.c:
+
+### 添加了 sys_kill 函数;
+
+## 2、修改了xtfs：
+
+### 在xtfs/bin中添加了kill.S；
+
+### 修改了asm.h (添加了kill指令的对应序号);
+
+### 修改了init_img.sh(添加了kill对应的镜像生成语句)
+
+### 基于位图的物理页分配算法优化,计划改成系统调用的方式实现
